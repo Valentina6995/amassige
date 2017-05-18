@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <li>
+      <%= link_to('Home', home_index_path, :method => :get) %>
+    </li>
+    <% if user_signed_in? %>
+      <div> <%= current_user.email %> </div>
+      <li>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to('Login', new_user_session_path)  %>
+      </li>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

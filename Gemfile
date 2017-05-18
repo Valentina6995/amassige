@@ -29,7 +29,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'therubyracer'
+gem 'devise'
+# Needed for external login (Facebook, Google+,...)
+gem 'omniauth'
+# Transform model in json
+gem 'active_model_serializers', '~> 0.10.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
