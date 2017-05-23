@@ -1,9 +1,9 @@
-class Api::User::AdvertisementsController < ApiController
-
-  before_action :authenticate_user!
+class Api::AdvertisementsController < ApiController
 
   def index
-    advs = Advertisement.all
+    advs = Advertisement.where(status: :open)
+    advs = advs.where('description like ?', "%#{params[:desc]}%") unless params[:desc].nil?
+
     render json: advs, each_serializer: Minimal::AdvertisementSerializer
   end
 
