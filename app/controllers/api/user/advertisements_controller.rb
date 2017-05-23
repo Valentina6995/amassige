@@ -1,4 +1,4 @@
-class AdvertisementsController < ApplicationController
+class Api::User::AdvertisementsController < ApiController
 
   before_action :authenticate_user!
 

@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :advertisements
+  namespace :api do
+    # Creates show and index routes for public advertisements
+    resources :advertisements, only: [:show, :index]
+
+    namespace :user do
+      # Creates CRUD routes for user advertisements
+      resources :advertisements
+    end
+  end
 
   devise_for :users
-  get 'home/index'
+  get 'site/home/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: "site/home#index"
 end

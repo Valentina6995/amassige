@@ -10,7 +10,7 @@
 
   <body>
     <li>
-      <%= link_to('Home', home_index_path, :method => :get) %>
+      <%= link_to('Home', site_home_index_path, :method => :get) %>
     </li>
     <% if user_signed_in? %>
       <div> <%= current_user.email %> </div>
